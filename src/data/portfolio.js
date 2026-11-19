@@ -16,6 +16,25 @@ export const personalInfo = {
   },
 };
 
+export const aboutMe = {
+  label: "About me",
+  statement:
+    "I enjoy figuring out how things work, why people struggle with them, and how design can make them better.",
+  introduction:
+    "My background in technology and visual design has shaped how I approach product design. Over the past four years, I've learned that the best solutions aren't always the most technologically impressive, but the ones that fit naturally into people's lives.",
+  capabilities: [
+    "Product strategy",
+    "UX research",
+    "UI design",
+    "Design systems",
+    "Prototyping",
+    "AI-powered products",
+    "Interaction design",
+    "Visual design",
+  ],
+  portrait: "/noble-about.jpg",
+};
+
 export const skills = {
   "Product Design": [
     "UX Strategy",
