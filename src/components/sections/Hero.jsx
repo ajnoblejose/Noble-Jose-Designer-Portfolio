@@ -11,7 +11,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="pt-36 sm:pt-44 pb-20 sm:pb-28 px-6">
+    <section id="hero" className="pt-36 sm:pt-44 pb-20 sm:pb-28 px-6">
       <div className="editorial-container">
         <div className="max-w-3xl">
           {/* Subtle status & location indicator */}
