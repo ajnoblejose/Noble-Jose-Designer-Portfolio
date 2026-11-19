@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <!-- Background Gradient: Muted Sage #DFEAE3 -->
+    <linearGradient id="sageBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E9F1EC"/>
+      <stop offset="50%" stop-color="#DFEAE3"/>
+      <stop offset="100%" stop-color="#D0DFD6"/>
+    </linearGradient>
+
+    <filter id="deskShadow" x="-10%" y="-10%" width="125%" height="130%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="16" stdDeviation="22" flood-color="#1E382A" flood-opacity="0.08"/>
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#1E382A" flood-opacity="0.04"/>
+    </filter>
+
+    <filter id="phoneShadow" x="-15%" y="-15%" width="135%" height="140%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="20" stdDeviation="24" flood-color="#132B1F" flood-opacity="0.14"/>
+    </filter>
+
+    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 4:3 Background Canvas -->
+  <rect width="800" height="600" fill="url(#sageBg)"/>
+
+  <!-- Subtle ambient decorative glow -->
+  <circle cx="700" cy="140" r="180" fill="#C5DCCE" opacity="0.5" filter="blur(60px)"/>
+  <circle cx="140" cy="480" r="160" fill="#BCD7C7" opacity="0.6" filter="blur(50px)"/>
+
+  <!-- Desktop Dashboard Window (Left / Background) -->
+  <g transform="translate(56, 56)" filter="url(#deskShadow)">
+    <rect width="520" height="488" rx="16" fill="#FFFFFF" stroke="#D3E2DA" stroke-width="1.5"/>
+
+    <!-- Window Header -->
+    <rect width="520" height="44" rx="16" fill="#F8FAF9"/>
+    <line x1="0" y1="44" x2="520" y2="44" stroke="#E5EEE9" stroke-width="1"/>
+
+    <!-- Controls -->
+    <circle cx="26" cy="22" r="5" fill="#FF5F56"/>
+    <circle cx="42" cy="22" r="5" fill="#FFBD2E"/>
+    <circle cx="58" cy="22" r="5" fill="#27C93F"/>
+
+    <text x="260" y="27" font-family="Inter, sans-serif" font-size="11.5" font-weight="600" fill="#3D5246" text-anchor="middle">
+      Rental Inspect · Asset Portfolio Manager
+    </text>
+
+    <!-- Content Area -->
+    <g transform="translate(24, 62)">
+      <!-- KPI Stats Row -->
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="148" height="64" rx="10" fill="#F4F8F6" stroke="#E3ECE7" stroke-width="1"/>
+        <text x="14" y="22" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#60796B">TOTAL ASSETS</text>
+        <text x="14" y="48" font-family="Inter, sans-serif" font-size="20" font-weight="700" fill="#1C3024">1,428</text>
+        <rect x="96" y="28" width="40" height="18" rx="4" fill="#ECFDF5"/>
+        <text x="101" y="40" font-family="Inter, sans-serif" font-size="9" font-weight="600" fill="#047857">+4.2%</text>
+
+        <rect x="160" y="0" width="148" height="64" rx="10" fill="#F4F8F6" stroke="#E3ECE7" stroke-width="1"/>
+        <text x="174" y="22" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#60796B">INSPECTIONS DUE</text>
+        <text x="174" y="48" font-family="Inter, sans-serif" font-size="20" font-weight="700" fill="#059669">18</text>
+        <text x="206" y="48" font-family="Inter, sans-serif" font-size="11" font-weight="500" fill="#758D7F">This Week</text>
+
+        <rect x="320" y="0" width="152" height="64" rx="10" fill="#F4F8F6" stroke="#E3ECE7" stroke-width="1"/>
+        <text x="334" y="22" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#60796B">ASSET COMPLIANCE</text>
+        <text x="334" y="48" font-family="Inter, sans-serif" font-size="20" font-weight="700" fill="#1C3024">99.4%</text>
+      </g>
+
+      <!-- Asset Inspection List Table -->
+      <g transform="translate(0, 84)">
+        <text x="0" y="16" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#203529">Active Property Audits</text>
+
+        <rect x="0" y="28" width="472" height="24" rx="4" fill="#EDF4F0"/>
+        <text x="12" y="44" font-family="Inter, sans-serif" font-size="9" font-weight="700" fill="#4E6759">PROPERTY / UNIT</text>
+        <text x="180" y="44" font-family="Inter, sans-serif" font-size="9" font-weight="700" fill="#4E6759">INSPECTOR</text>
+        <text x="310" y="44" font-family="Inter, sans-serif" font-size="9" font-weight="700" fill="#4E6759">STATUS</text>
+
+        <!-- Row 1 -->
+        <line x1="0" y1="52" x2="472" y2="52" stroke="#E5EEE9" stroke-width="1"/>
+        <text x="12" y="74" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#16291E">Mayfair Residences #402</text>
+        <text x="12" y="88" font-family="Inter, sans-serif" font-size="9.5" font-weight="400" fill="#758D7F">3 Bed · 2 Bath · Move-Out</text>
+        <text x="180" y="79" font-family="Inter, sans-serif" font-size="10" font-weight="500" fill="#3D5246">David Miller</text>
+        <rect x="310" y="66" width="70" height="20" rx="4" fill="#ECFDF5"/>
+        <text x="318" y="80" font-family="Inter, sans-serif" font-size="9.5" font-weight="600" fill="#047857">Completed</text>
+
+        <!-- Row 2 -->
+        <line x1="0" y1="102" x2="472" y2="102" stroke="#E5EEE9" stroke-width="1"/>
+        <text x="12" y="124" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#16291E">Westend Lofts #11B</text>
+        <text x="12" y="138" font-family="Inter, sans-serif" font-size="9.5" font-weight="400" fill="#758D7F">Studio · Routine Check</text>
+        <text x="180" y="129" font-family="Inter, sans-serif" font-size="10" font-weight="500" fill="#3D5246">Sarah Thorne</text>
+        <rect x="310" y="116" width="70" height="20" rx="4" fill="#FEF3C7"/>
+        <text x="322" y="130" font-family="Inter, sans-serif" font-size="9.5" font-weight="600" fill="#B45309">In Progress</text>
+
+        <!-- Row 3 -->
+        <line x1="0" y1="152" x2="472" y2="152" stroke="#E5EEE9" stroke-width="1"/>
+        <text x="12" y="174" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#16291E">Belgrave Terrace #04</text>
+        <text x="12" y="188" font-family="Inter, sans-serif" font-size="9.5" font-weight="400" fill="#758D7F">4 Bed Penthouse · Turnover</text>
+        <text x="180" y="179" font-family="Inter, sans-serif" font-size="10" font-weight="500" fill="#3D5246">Alex Bennett</text>
+        <rect x="310" y="166" width="70" height="20" rx="4" fill="#F1F5F9"/>
+        <text x="323" y="180" font-family="Inter, sans-serif" font-size="9.5" font-weight="600" fill="#475569">Scheduled</text>
+
+        <!-- Mini Chart Bar -->
+        <g transform="translate(0, 214)">
+          <rect x="0" y="0" width="300" height="68" rx="8" fill="#F8FAF9" stroke="#E3ECE7" stroke-width="1"/>
+          <text x="14" y="22" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#4B6355">Condition Degradation Velocity</text>
+          <path d="M 14 54 Q 60 48, 110 38 T 190 42 T 280 24" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round"/>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- Mobile Inspection App Mockup (Foreground / Overlapping Right) -->
+  <g transform="translate(506, 78)" filter="url(#phoneShadow)">
+    <!-- Device Body -->
+    <rect width="236" height="466" rx="36" fill="#1A2820" stroke="#2D4437" stroke-width="2.5"/>
+    <!-- Screen Area -->
+    <rect x="6" y="6" width="224" height="454" rx="30" fill="#FFFFFF"/>
+
+    <!-- Dynamic Island -->
+    <rect x="74" y="14" width="76" height="18" rx="9" fill="#1A2820"/>
+
+    <!-- Mobile App Header -->
+    <g transform="translate(18, 44)">
+      <text x="0" y="16" font-family="Inter, sans-serif" font-size="9" font-weight="700" fill="#059669" letter-spacing="0.05em">ON-SITE AUDIT</text>
+      <text x="0" y="34" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#182A20">Unit 402 Move-In</text>
+      <text x="0" y="48" font-family="Inter, sans-serif" font-size="9.5" font-weight="500" fill="#6B8274">Mayfair Residences · Room 3/8</text>
+
+      <!-- Checklist Item 1 -->
+      <g transform="translate(0, 64)">
+        <rect x="0" y="0" width="188" height="52" rx="10" fill="#F5F9F7" stroke="#DCEBE2" stroke-width="1"/>
+        <circle cx="18" cy="26" r="8" fill="#ECFDF5"/>
+        <path d="M 14 26 L 17 29 L 22 23" stroke="#059669" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <text x="34" y="22" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="#1C3024">Hardwood Flooring</text>
+        <text x="34" y="36" font-family="Inter, sans-serif" font-size="9" font-weight="500" fill="#047857">Condition: Flawless ✓</text>
+      </g>
+
+      <!-- Checklist Item 2 -->
+      <g transform="translate(0, 124)">
+        <rect x="0" y="0" width="188" height="66" rx="10" fill="#FFFFFF" stroke="#10B981" stroke-width="1.5"/>
+        <circle cx="18" cy="24" r="8" fill="#ECFDF5"/>
+        <path d="M 14 24 L 17 27 L 22 21" stroke="#059669" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <text x="34" y="20" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="#1C3024">HVAC & Climate Duct</text>
+        <text x="34" y="34" font-family="Inter, sans-serif" font-size="9" font-weight="500" fill="#4E6759">Filter Replaced · 21°C Set</text>
+        
+        <!-- Attached Photo Tag -->
+        <rect x="34" y="42" width="94" height="16" rx="4" fill="#EDF4F0"/>
+        <text x="42" y="53" font-family="Inter, sans-serif" font-size="8.5" font-weight="600" fill="#047857">📷 2 Photos Attached</text>
+      </g>
+
+      <!-- Checklist Item 3 -->
+      <g transform="translate(0, 198)">
+        <rect x="0" y="0" width="188" height="52" rx="10" fill="#FBFBFD" stroke="#E3ECE7" stroke-width="1"/>
+        <circle cx="18" cy="26" r="8" fill="#F1F5F9"/>
+        <text x="34" y="22" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="#334155">Master Ensuite Tapware</text>
+        <text x="34" y="36" font-family="Inter, sans-serif" font-size="9" font-weight="500" fill="#64748B">Awaiting Inspection</text>
+      </g>
+
+      <!-- Action Button -->
+      <g transform="translate(0, 268)">
+        <rect x="0" y="0" width="188" height="38" rx="10" fill="url(#emeraldGrad)"/>
+        <text x="94" y="24" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#FFFFFF" text-anchor="middle">
+          Complete & Generate PDF
+        </text>
+      </g>
+
+      <!-- Inspector Signature Mini -->
+      <g transform="translate(0, 318)">
+        <rect x="0" y="0" width="188" height="38" rx="8" fill="#F7FAF8" stroke="#E3ECE7" stroke-width="1"/>
+        <text x="10" y="16" font-family="Inter, sans-serif" font-size="8" font-weight="600" fill="#6B8274">DIGITAL DUAL SIGNATURE</text>
+        <path d="M 10 28 Q 24 22, 40 30 T 70 24 T 100 28" fill="none" stroke="#059669" stroke-width="1.4"/>
+        <circle cx="170" cy="20" r="6" fill="#ECFDF5"/>
+        <path d="M 168 20 L 170 22 L 173 18" stroke="#059669" stroke-width="1.2" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>

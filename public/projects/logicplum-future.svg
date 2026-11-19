@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <!-- Background Gradient: Soft Lavender #E9E5FF -->
+    <linearGradient id="lavenderBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2EFFF"/>
+      <stop offset="50%" stop-color="#E9E5FF"/>
+      <stop offset="100%" stop-color="#DDD6FE"/>
+    </linearGradient>
+
+    <!-- UI Card Drop Shadow -->
+    <filter id="cardShadow" x="-10%" y="-10%" width="125%" height="130%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#4B38A8" flood-opacity="0.09"/>
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#4B38A8" flood-opacity="0.05"/>
+    </filter>
+
+    <filter id="floatShadow" x="-15%" y="-15%" width="135%" height="140%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#2D1B69" flood-opacity="0.12"/>
+    </filter>
+
+    <linearGradient id="violetAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6E4DFF"/>
+      <stop offset="100%" stop-color="#5938F5"/>
+    </linearGradient>
+
+    <linearGradient id="progressGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#5938F5"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 4:3 Background Canvas -->
+  <rect width="800" height="600" fill="url(#lavenderBg)"/>
+
+  <!-- Subtle ambient decorative glow -->
+  <circle cx="680" cy="120" r="180" fill="#C4B5FD" opacity="0.45" filter="blur(60px)"/>
+  <circle cx="120" cy="500" r="160" fill="#DDD6FE" opacity="0.6" filter="blur(50px)"/>
+
+  <!-- Main Application Window (Centered / Editorial UI Composition) -->
+  <g transform="translate(68, 64)" filter="url(#cardShadow)">
+    <!-- Main Window Background -->
+    <rect width="664" height="472" rx="16" fill="#FFFFFF" stroke="#E2DBFF" stroke-width="1.5"/>
+
+    <!-- Window Title Bar -->
+    <rect width="664" height="46" rx="16" fill="#FAFAFD"/>
+    <line x1="0" y1="46" x2="664" y2="46" stroke="#ECE8FC" stroke-width="1"/>
+
+    <!-- Window Controls -->
+    <circle cx="28" cy="23" r="5.5" fill="#FF5F56"/>
+    <circle cx="46" cy="23" r="5.5" fill="#FFBD2E"/>
+    <circle cx="64" cy="23" r="5.5" fill="#27C93F"/>
+
+    <!-- Title / Breadcrumb -->
+    <text x="332" y="28" font-family="Inter, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#4B4869" text-anchor="middle">
+      LogicPlum Future · Enterprise BRD Studio
+    </text>
+
+    <!-- Sidebar Divider -->
+    <line x1="172" y1="46" x2="172" y2="472" stroke="#ECE8FC" stroke-width="1"/>
+
+    <!-- Sidebar Content -->
+    <g transform="translate(18, 62)">
+      <text x="8" y="14" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="#8E8BA7" letter-spacing="0.06em">SPECIFICATION MAP</text>
+
+      <!-- Active Menu Item -->
+      <rect x="0" y="26" width="138" height="30" rx="8" fill="#F3EFFF"/>
+      <circle cx="14" cy="41" r="3.5" fill="#5938F5"/>
+      <text x="26" y="45" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#5938F5">BRD Synthesis</text>
+
+      <!-- Sub-items -->
+      <text x="26" y="80" font-family="Inter, sans-serif" font-size="11" font-weight="500" fill="#6A6785">1. Exec Summary</text>
+      <text x="26" y="110" font-family="Inter, sans-serif" font-size="11" font-weight="500" fill="#6A6785">2. Architecture</text>
+      <text x="26" y="140" font-family="Inter, sans-serif" font-size="11" font-weight="500" fill="#6A6785">3. User Flows</text>
+      <text x="26" y="170" font-family="Inter, sans-serif" font-size="11" font-weight="500" fill="#6A6785">4. Data Schemas</text>
+      <text x="26" y="200" font-family="Inter, sans-serif" font-size="11" font-weight="500" fill="#6A6785">5. Compliance</text>
+
+      <!-- Model Indicator Pill -->
+      <rect x="4" y="340" width="130" height="36" rx="8" fill="#F8F7FF" stroke="#E6E0FF" stroke-width="1"/>
+      <circle cx="18" cy="358" r="4" fill="#10B981"/>
+      <text x="28" y="356" font-family="Inter, sans-serif" font-size="9.5" font-weight="600" fill="#3730A3">Multi-Agent Engine</text>
+      <text x="28" y="368" font-family="Inter, sans-serif" font-size="8.5" font-weight="400" fill="#7C77A3">Latency: 42ms</text>
+    </g>
+
+    <!-- Main Workspace -->
+    <g transform="translate(192, 62)">
+      <!-- AI Workflow / Prompt Input Bar -->
+      <rect x="0" y="0" width="452" height="66" rx="12" fill="#F9F8FE" stroke="#E6E0FF" stroke-width="1.2"/>
+      <rect x="14" y="14" width="38" height="38" rx="10" fill="url(#violetAccent)"/>
+      <path d="M 33 25 L 35 30 L 40 32 L 35 34 L 33 39 L 31 34 L 26 32 L 31 30 Z" fill="#FFFFFF"/>
+      
+      <text x="64" y="31" font-family="Inter, sans-serif" font-size="12.5" font-weight="600" fill="#1E1B39">
+        Synthesize Core Banking Migration BRD
+      </text>
+      <text x="64" y="47" font-family="Inter, sans-serif" font-size="10.5" font-weight="400" fill="#757099">
+        18 documents ingested · ISO 20022 schema validated · 96% confidence
+      </text>
+
+      <!-- Stepper / Progress Row -->
+      <g transform="translate(0, 80)">
+        <rect x="0" y="0" width="452" height="32" rx="8" fill="#F8F8FC"/>
+        <text x="12" y="20" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#5938F5">STEP 3 OF 4</text>
+        <text x="82" y="20" font-family="Inter, sans-serif" font-size="10" font-weight="500" fill="#4B4869">Generating Functional Specification Specs...</text>
+        
+        <!-- Progress Bar -->
+        <rect x="312" y="12" width="124" height="8" rx="4" fill="#EAE7FA"/>
+        <rect x="312" y="12" width="98" height="8" rx="4" fill="url(#progressGrad)"/>
+      </g>
+
+      <!-- Document Preview Canvas Card -->
+      <g transform="translate(0, 126)">
+        <rect x="0" y="0" width="452" height="264" rx="10" fill="#FFFFFF" stroke="#ECE8FC" stroke-width="1.2"/>
+        
+        <!-- Document Header -->
+        <rect x="18" y="16" width="160" height="14" rx="3" fill="#E8E4FF"/>
+        <rect x="18" y="38" width="380" height="7" rx="3.5" fill="#F0EEFA"/>
+        <rect x="18" y="52" width="320" height="7" rx="3.5" fill="#F0EEFA"/>
+        <rect x="18" y="66" width="350" height="7" rx="3.5" fill="#F0EEFA"/>
+
+        <!-- Requirements Table Preview -->
+        <g transform="translate(18, 90)">
+          <rect x="0" y="0" width="416" height="24" rx="4" fill="#F6F5FD"/>
+          <text x="12" y="16" font-family="Inter, sans-serif" font-size="9" font-weight="700" fill="#6A658E">REQ ID</text>
+          <text x="80" y="16" font-family="Inter, sans-serif" font-size="9" font-weight="700" fill="#6A658E">SPECIFICATION TITLE</text>
+          <text x="280" y="16" font-family="Inter, sans-serif" font-size="9" font-weight="700" fill="#6A658E">COMPLIANCE</text>
+          <text x="366" y="16" font-family="Inter, sans-serif" font-size="9" font-weight="700" fill="#6A658E">STATUS</text>
+
+          <!-- Row 1 -->
+          <line x1="0" y1="24" x2="416" y2="24" stroke="#ECE8FC" stroke-width="1"/>
+          <text x="12" y="44" font-family="Inter, sans-serif" font-size="9" font-weight="600" fill="#5938F5">BRD-01</text>
+          <text x="80" y="44" font-family="Inter, sans-serif" font-size="9.5" font-weight="500" fill="#25223D">OAuth 2.0 / mTLS Gateway Handshake</text>
+          <rect x="280" y="33" width="58" height="16" rx="4" fill="#EEF2FF"/>
+          <text x="290" y="44" font-family="Inter, sans-serif" font-size="8.5" font-weight="600" fill="#4338CA">PSD2 Reg</text>
+          <circle cx="376" cy="41" r="3.5" fill="#10B981"/>
+          <text x="386" y="44" font-family="Inter, sans-serif" font-size="9" font-weight="600" fill="#047857">Parsed</text>
+
+          <!-- Row 2 -->
+          <line x1="0" y1="56" x2="416" y2="56" stroke="#ECE8FC" stroke-width="1"/>
+          <text x="12" y="76" font-family="Inter, sans-serif" font-size="9" font-weight="600" fill="#5938F5">BRD-02</text>
+          <text x="80" y="76" font-family="Inter, sans-serif" font-size="9.5" font-weight="500" fill="#25223D">Real-time ISO 20022 Settlement Hook</text>
+          <rect x="280" y="65" width="58" height="16" rx="4" fill="#FDF2F8"/>
+          <text x="287" y="76" font-family="Inter, sans-serif" font-size="8.5" font-weight="600" fill="#9D174D">Audit Log</text>
+          <circle cx="376" cy="73" r="3.5" fill="#10B981"/>
+          <text x="386" y="76" font-family="Inter, sans-serif" font-size="9" font-weight="600" fill="#047857">Parsed</text>
+
+          <!-- Row 3 -->
+          <line x1="0" y1="88" x2="416" y2="88" stroke="#ECE8FC" stroke-width="1"/>
+          <text x="12" y="108" font-family="Inter, sans-serif" font-size="9" font-weight="600" fill="#5938F5">BRD-03</text>
+          <text x="80" y="108" font-family="Inter, sans-serif" font-size="9.5" font-weight="500" fill="#25223D">Sub-second Ledger Reconciliation Loop</text>
+          <rect x="280" y="97" width="58" height="16" rx="4" fill="#ECFDF5"/>
+          <text x="290" y="108" font-family="Inter, sans-serif" font-size="8.5" font-weight="600" fill="#065F46">PCI-DSS</text>
+          <circle cx="376" cy="105" r="3.5" fill="#F59E0B"/>
+          <text x="386" y="108" font-family="Inter, sans-serif" font-size="9" font-weight="600" fill="#B45309">Checking</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- Floating AI Badge / Copilot Card (Bottom Right Accent) -->
+  <g transform="translate(510, 436)" filter="url(#floatShadow)">
+    <rect width="242" height="106" rx="14" fill="#FFFFFF" stroke="#DCD6F8" stroke-width="1.5"/>
+    <rect x="14" y="14" width="28" height="28" rx="8" fill="#5938F5"/>
+    <path d="M 28 22 L 29.5 25.5 L 33 27 L 29.5 28.5 L 28 32 L 26.5 28.5 L 23 27 L 26.5 25.5 Z" fill="#FFFFFF"/>
+    <text x="50" y="27" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#1C1838">AI Ambiguity Filter</text>
+    <text x="50" y="39" font-family="Inter, sans-serif" font-size="9.5" font-weight="500" fill="#059669">0 Unresolved Discrepancies</text>
+    
+    <line x1="14" y1="52" x2="228" y2="52" stroke="#F1EDFD" stroke-width="1"/>
+    
+    <text x="14" y="70" font-family="Inter, sans-serif" font-size="9.5" font-weight="500" fill="#4B4766">
+      Architecture aligns 100% with
+    </text>
+    <text x="14" y="84" font-family="Inter, sans-serif" font-size="9.5" font-weight="600" fill="#5938F5">
+      Enterprise Engineering Specs
+    </text>
+
+    <!-- Checkmark Badge -->
+    <circle cx="214" cy="74" r="10" fill="#ECFDF5"/>
+    <path d="M 210 74 L 213 77 L 219 71" stroke="#059669" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

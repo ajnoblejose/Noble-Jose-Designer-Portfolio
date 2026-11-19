@@ -137,75 +137,102 @@ export const education = [
   },
 ];
 
-// Factual, credible project case studies based strictly on Noble Jose's resume
+// Featured Projects: Displayed in 2x2 grid matching Velia template structure
 export const projects = [
   {
-    id: "logicplum-design-system",
-    title: "Enterprise Design System",
-    subtitle: "A scalable, token-based component library unifying multiple AI-driven applications",
+    id: "logicplum-future",
+    title: "LogicPlum Future",
+    subtitle: "AI-powered business requirements document generation platform.",
+    category: "AI · Enterprise SaaS",
+    year: "", // Left blank until confirmed
     client: "LogicPlum",
-    role: "Senior UI/UX Designer",
-    category: "Product Design",
-    year: "2023 – 2024",
-    duration: "Ongoing",
-    tools: ["Figma", "Design Tokens", "Auto Layout", "Design Guidelines"],
+    role: "Product Designer",
+    duration: "6 months",
+    image: "/projects/logicplum-future.svg",
+    tools: ["Figma", "Design Systems", "AI UX", "Rapid Prototyping"],
     accent: "#5938F5",
     overview:
-      "At LogicPlum, I established and maintained a centralized design system to ensure visual consistency and streamlined handoff across our multi-product AI suite.",
+      "LogicPlum Future is an enterprise AI platform that synthesizes complex business inputs, regulatory standards, and technical constraints into comprehensive business requirements documentation (BRD).",
     problem:
-      "Multiple product teams were shipping features with divergent UI patterns, inconsistent typography scales, and fragmented interactive states, making the product suite feel disconnected.",
+      "Enterprise software teams routinely spend weeks formatting and cross-referencing functional requirements, leading to communication gaps between business analysts and engineering squads.",
     process:
-      "Conducted a comprehensive UI inventory across all products, cataloged recurring patterns, and established foundational tokens (color, typography, spacing, elevation). Partnered with frontend engineers to align Figma components with production code components.",
+      "Conducted contextual inquiries with product managers and systems architects. Mapped prompt interaction flows, multi-agent evaluation states, and established progressive disclosure patterns for editing generated technical specs.",
     solution:
-      "Created an extensive Figma component library utilizing variables for theming, strict auto-layout rules, and documented usage guidelines for buttons, form controls, navigation, and data tables.",
+      "Designed an intuitive workspace featuring dynamic node-based requirements modeling, automated compliance checks, and real-time collaboration with inline AI refinement.",
     outcome:
-      "Achieved unified interface consistency across products and established a shared visual vocabulary between product designers and engineering teams.",
-    tags: ["Design System", "Component Library", "Figma", "Enterprise UX"],
+      "Streamlined specification authoring from several weeks to hours while ensuring strict auditability and stakeholder alignment.",
+    tags: ["AI Platform", "Enterprise SaaS", "Workflow Automation", "Design System"],
   },
   {
-    id: "ai-product-experience",
-    title: "AI-Powered Workflow Design",
-    subtitle: "Designing human-centered interfaces for complex machine learning and data workflows",
-    client: "LogicPlum",
-    role: "Senior UI/UX Designer",
-    category: "UX Strategy",
-    year: "2023 – 2024",
-    duration: "Product Cycle",
-    tools: ["Figma", "User Journey Mapping", "Miro", "Prototyping"],
+    id: "rental-inspect",
+    title: "Rental Inspect",
+    subtitle: "Property inspection, asset management and maintenance platform.",
+    category: "Real estate · Asset management",
+    year: "", // Left blank until confirmed
+    client: "Rental Inspect",
+    role: "Product Designer",
+    duration: "5 months",
+    image: "/projects/rental-inspect.svg",
+    tools: ["Figma", "User Research", "Mobile UX", "Information Architecture"],
     accent: "#5938F5",
     overview:
-      "Designed intuitive interfaces that make advanced AI capabilities accessible and manageable for business users and data analysts.",
+      "Rental Inspect is a specialized digital platform designed for property managers, field inspectors, and landlords to perform rigorous condition reports and lifecycle asset management.",
     problem:
-      "Machine learning tools often expose unnecessary technical complexity, causing cognitive fatigue and steep learning curves for users who need actionable insights rather than raw parameters.",
+      "Manual paper inspections and disjointed camera uploads resulted in delayed dispute resolution, missing asset metadata, and friction during tenant handovers.",
     process:
-      "Conducted user interviews to map task flows and identify friction points in data preparation and model evaluation. Explored progressive disclosure patterns to hide low-level complexity behind sensible defaults.",
+      "Accompanied field inspectors on site audits to understand physical inspection ergonomics, low-connectivity challenges, and rapid photo-annotation requirements.",
     solution:
-      "Designed step-by-step workflow wizards, contextual explainability tooltips, clear status states, and simplified configuration panels that guide users through AI-assisted processes.",
+      "Architected a mobile-first inspection flow featuring interactive floor plan pin-drops, automated checklist branching, and digital dual-signature signing.",
     outcome:
-      "Delivered clear, intuitive user flows that reduced task ambiguity and made complex automated workflows approachable for non-technical users.",
-    tags: ["AI UX", "Information Architecture", "User Flows", "Interaction Design"],
+      "Provided landlords and property managers with instant, standardized inspection documentation and complete maintenance transparency.",
+    tags: ["Real Estate", "Mobile App", "Field Operations", "Asset Management"],
   },
   {
-    id: "brand-identity-visuals",
-    title: "Visual Identity & Graphic Design",
-    subtitle: "Cohesive brand assets, typography systems, and promotional materials",
-    client: "Freelance",
-    role: "Graphic Designer",
-    category: "Graphic Design",
-    year: "2018 – 2021",
-    duration: "Multi-client",
-    tools: ["Photoshop", "Illustrator", "Typography", "Visual Layout"],
+    id: "seahouse-villas",
+    title: "SeaHouse Villas",
+    subtitle: "Digital concierge and personalized villa guest experience application.",
+    category: "Hospitality · Guest experience",
+    year: "", // Left blank until confirmed
+    client: "SeaHouse Hospitality Group",
+    role: "Lead UI/UX Designer",
+    duration: "4 months",
+    image: "/projects/seahouse-villas.svg",
+    tools: ["Figma", "Hospitality UX", "IoT Interaction", "Design Guidelines"],
     accent: "#5938F5",
     overview:
-      "A body of freelance visual design work developed for diverse businesses, focusing on brand identity, visual storytelling, and marketing communication.",
+      "SeaHouse Villas is an exclusive guest experience application connecting luxury villa guests with on-demand butler services, private dining, IoT room environments, and tailored local itineraries.",
     problem:
-      "Emerging businesses needed distinctive visual communication to establish professional presence and communicate service offerings clearly across print and digital touchpoints.",
+      "Luxury guests expect effortless, highly bespoke service, but traditional phone calls to the concierge often caused miscommunication of preferences and schedule delays.",
     process:
-      "Engaged directly with clients to define brand positioning, target demographics, and key visual attributes. Explored logo directions, color palettes, and typographic pairings through iterative mockups.",
+      "Analyzed the luxury guest journey from pre-arrival to checkout. Designed an understated, tactile visual aesthetic that respects the calm atmosphere of high-end resort living.",
     solution:
-      "Delivered complete identity toolkits including primary logos, social media visual assets, promotional posters, and editorial layouts built upon strong design principles.",
+      "Created an ambient concierge interface enabling one-touch private chef bookings, smart pool and room climate control, and real-time itinerary coordination.",
     outcome:
-      "Helped clients launch cohesive brand identities that clearly communicated their value propositions to their target audiences.",
-    tags: ["Branding", "Visual Identity", "Typography", "Art Direction"],
+      "Elevated guest satisfaction ratings and delivered seamless communication between guests and property staff.",
+    tags: ["Hospitality", "Digital Concierge", "Smart Home IoT", "Luxury UX"],
+  },
+  {
+    id: "physiomate",
+    title: "PhysioMate",
+    subtitle: "Digital management solution for physiotherapy clinics.",
+    category: "Healthcare · Clinic management",
+    year: "", // Left blank until confirmed
+    client: "PhysioMate Health",
+    role: "Product Designer",
+    duration: "6 months",
+    image: "/projects/physiomate.svg",
+    tools: ["Figma", "Healthcare UX", "Accessibility", "Data Visualization"],
+    accent: "#5938F5",
+    overview:
+      "PhysioMate is an all-in-one clinical management and patient rehabilitation platform that connects physical therapists with patients through guided recovery tracking and scheduling.",
+    problem:
+      "Physiotherapy clinics struggled with high patient dropout rates between clinic sessions, unstandardized home-exercise tracking, and cumbersome scheduling software.",
+    process:
+      "Partnered with practicing physiotherapists to map treatment plans, range-of-motion assessments, and patient-reported outcome measures (PROMs).",
+    solution:
+      "Designed an accessible clinical dashboard with clear visual recovery curves, automated appointment management, and patient video-exercise adherence logs.",
+    outcome:
+      "Helped clinicians track patient progress with measurable data and improved patient rehabilitation compliance.",
+    tags: ["Healthcare", "Clinic Management", "Patient Recovery", "Data Visualization"],
   },
 ];

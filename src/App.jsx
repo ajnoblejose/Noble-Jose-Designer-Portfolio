@@ -5,6 +5,7 @@ import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Home from './pages/Home';
 import CaseStudy from './pages/CaseStudy';
+import Projects from './pages/Projects';
 import Button from './components/ui/Button';
 
 function ScrollToTop() {
@@ -33,6 +34,7 @@ export default function App() {
           <div className="flex-1">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/projects" element={<Projects />} />
               <Route path="/work/:id" element={<CaseStudy />} />
               <Route
                 path="*"
