@@ -13,11 +13,11 @@ export default function Button({
   ...props
 }) {
   const base =
-    'inline-flex items-center justify-center gap-2 font-medium rounded-full transition-all duration-200 focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--accent)] cursor-pointer select-none';
+    'inline-flex items-center justify-center gap-2 font-medium rounded-full transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] cursor-pointer select-none';
 
   const variants = {
     primary:
-      'bg-[var(--text-primary)] text-[var(--bg-primary)] hover:opacity-90 active:scale-[0.99]',
+      'bg-[var(--accent)] text-white hover:opacity-95 active:scale-[0.99] shadow-xs',
     secondary:
       'border border-[var(--border)] text-[var(--text-primary)] hover:border-[var(--text-muted)] bg-transparent active:scale-[0.99]',
     ghost:
@@ -26,8 +26,8 @@ export default function Button({
 
   const sizes = {
     sm: 'px-3.5 py-1.5 text-xs',
-    md: 'px-5 py-2.5 text-xs font-mono',
-    lg: 'px-6 py-3 text-sm font-mono',
+    md: 'px-5 py-2.5 text-sm',
+    lg: 'px-6 py-3 text-sm sm:text-base',
   };
 
   const computedClass = clsx(base, variants[variant], sizes[size], className);

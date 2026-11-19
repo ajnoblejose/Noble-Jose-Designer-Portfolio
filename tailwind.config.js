@@ -10,6 +10,7 @@ export default {
       fontFamily: {
         sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
         mono: ['Inter', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+        handwriting: ['Caveat', 'cursive'],
       },
       colors: {
         'bg-primary': 'var(--bg-primary)',

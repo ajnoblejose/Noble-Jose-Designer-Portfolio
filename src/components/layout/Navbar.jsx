@@ -1,7 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import ThemeToggle from '../ui/ThemeToggle';
 import { Menu, X } from 'lucide-react';
+import { personalInfo } from '../../data/portfolio';
 
 const navItems = [
   { id: 'work', label: 'Work', href: '/#work' },
@@ -14,10 +15,8 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
-  const mobileMenuRef = useRef(null);
 
-  // Active section spy: highlights work/about/experience/contact, but NEVER the hero
+  // Active section scroll spy
   useEffect(() => {
     if (location.pathname !== '/') {
       setActiveSection('');
@@ -27,16 +26,15 @@ export default function Navbar() {
     const sectionIds = ['work', 'about', 'experience', 'contact'];
 
     const handleScroll = () => {
-      // If within the hero area (near top), do not highlight any link
+      // If near top (hero section), no nav link is active
       const heroEl = document.getElementById('hero');
       const heroBottom = heroEl ? heroEl.getBoundingClientRect().bottom : 300;
 
-      if (window.scrollY < 200 || heroBottom > 220) {
+      if (window.scrollY < 200 || heroBottom > 150) {
         setActiveSection('');
         return;
       }
 
-      // Check which section is currently centered/active in viewport
       const viewportMid = window.innerHeight * 0.35;
       let currentSection = '';
 
@@ -51,7 +49,6 @@ export default function Navbar() {
         }
       }
 
-      // Fallback for near bottom of page (Contact section)
       if (
         window.innerHeight + window.scrollY >=
         document.documentElement.scrollHeight - 100
@@ -84,23 +81,18 @@ export default function Navbar() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [mobileMenuOpen]);
 
-  // Wordmark click: returns user to top of the homepage
-  const handleWordmarkClick = (e) => {
+  // Return to top on logo click
+  const handleLogoClick = (e) => {
     setMobileMenuOpen(false);
     if (location.pathname === '/') {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
       setActiveSection('');
       window.history.pushState(null, '', '/');
-    } else {
-      // If on case study page, navigate home and scroll to top
-      e.preventDefault();
-      navigate('/');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
-  // Smooth scroll handler for anchor navigation
+  // Smooth scroll handler for anchor links
   const handleNavClick = (e, item) => {
     if (location.pathname === '/') {
       e.preventDefault();
@@ -115,25 +107,31 @@ export default function Navbar() {
   };
 
   return (
-    <header className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
-      {/* Centred floating pill-shaped navbar: 880px max-width, 64px height, 24px horizontal padding */}
+    <header className="fixed top-0 left-0 right-0 z-50 w-full border-b border-[var(--border)] bg-[var(--nav-blur)] backdrop-blur-[16px] transition-colors duration-200">
       <nav
         role="navigation"
         aria-label="Main Navigation"
-        className="pointer-events-auto w-full max-w-[880px] h-16 px-6 rounded-full border border-[var(--border)] bg-[var(--nav-blur)] backdrop-blur-md shadow-sm flex items-center justify-between transition-colors duration-200"
+        className="editorial-container h-16 flex items-center justify-between"
       >
-        {/* Typographic Wordmark: 16px semibold, returns to top of homepage */}
+        {/* Left: Small circular profile photo and Noble Jose */}
         <Link
           to="/"
-          onClick={handleWordmarkClick}
-          className="text-[16px] font-semibold tracking-tight text-[var(--text-primary)] hover:text-[var(--accent)] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] rounded-md px-1 py-0.5 cursor-pointer"
+          onClick={handleLogoClick}
+          className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] rounded-full pr-2 py-1"
           aria-label="Noble Jose — Return to top"
         >
-          Noble Jose
+          <img
+            src="/noble-avatar.png"
+            alt="Noble Jose"
+            className="w-8 h-8 rounded-full object-cover object-top border border-[var(--border)] transition-transform duration-200 group-hover:scale-105"
+          />
+          <span className="text-sm font-semibold tracking-tight text-[var(--text-primary)] group-hover:text-[var(--accent)] transition-colors">
+            {personalInfo.name}
+          </span>
         </Link>
 
-        {/* Desktop Navigation Links: 14px medium, subtle active background pill only (no dot) */}
-        <div className="hidden md:flex items-center gap-1 sm:gap-2">
+        {/* Centre: Work, About, Experience, Contact */}
+        <div className="hidden md:flex items-center gap-8 text-sm font-medium">
           {navItems.map((item) => {
             const isActive = activeSection === item.id;
             return (
@@ -142,10 +140,10 @@ export default function Navbar() {
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item)}
                 aria-current={isActive ? 'page' : undefined}
-                className={`px-3.5 py-1.5 rounded-full text-[14px] font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] ${
+                className={`transition-colors duration-150 py-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--accent)] rounded ${
                   isActive
-                    ? 'text-[var(--text-primary)] bg-[var(--bg-secondary)]'
-                    : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]/50'
+                    ? 'text-[var(--text-primary)] font-semibold'
+                    : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
                 }`}
               >
                 {item.label}
@@ -154,18 +152,29 @@ export default function Navbar() {
           })}
         </div>
 
-        {/* Right Controls: Theme Toggle & Mobile Hamburger */}
-        <div className="flex items-center gap-2">
+        {/* Right: Available for work indicator & minimal theme toggle */}
+        <div className="flex items-center gap-4">
+          {/* Available for work badge */}
+          <div className="hidden sm:inline-flex items-center gap-2 text-xs font-medium text-[var(--text-muted)]">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+            </span>
+            <span className="text-[var(--text-primary)]">Available for work</span>
+          </div>
+
+          <div className="h-4 w-px bg-[var(--border)] hidden sm:block" />
+
+          {/* Minimal Theme Toggle */}
           <ThemeToggle />
 
-          {/* Mobile Hamburger Toggle */}
+          {/* Mobile hamburger menu */}
           <button
             type="button"
             onClick={() => setMobileMenuOpen((prev) => !prev)}
             aria-expanded={mobileMenuOpen}
-            aria-controls="mobile-navigation"
             aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-            className="md:hidden p-2 rounded-full text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] transition-colors cursor-pointer"
+            className="md:hidden p-1.5 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] transition-colors"
           >
             {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -176,8 +185,7 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <div
           id="mobile-navigation"
-          ref={mobileMenuRef}
-          className="pointer-events-auto absolute top-20 left-4 right-4 max-w-[880px] mx-auto md:hidden p-4 rounded-3xl border border-[var(--border)] bg-[var(--bg-card)]/95 backdrop-blur-xl shadow-lg flex flex-col gap-1 animate-in fade-in slide-in-from-top-2 duration-200"
+          className="md:hidden border-b border-[var(--border)] bg-[var(--bg-card)]/95 backdrop-blur-[16px] px-6 py-4 flex flex-col gap-2 animate-in fade-in slide-in-from-top-2 duration-150"
         >
           {navItems.map((item) => {
             const isActive = activeSection === item.id;
@@ -187,16 +195,23 @@ export default function Navbar() {
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item)}
                 aria-current={isActive ? 'page' : undefined}
-                className={`px-4 py-3 rounded-2xl text-[14px] font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] ${
+                className={`py-2 text-sm font-medium transition-colors ${
                   isActive
-                    ? 'text-[var(--text-primary)] bg-[var(--bg-secondary)] font-semibold'
-                    : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]/50'
+                    ? 'text-[var(--text-primary)] font-semibold'
+                    : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
                 }`}
               >
                 {item.label}
               </a>
             );
           })}
+
+          <div className="pt-3 mt-1 border-t border-[var(--border)] flex items-center justify-between text-xs text-[var(--text-muted)]">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-emerald-500" />
+              <span className="text-[var(--text-primary)] font-medium">Available for work</span>
+            </div>
+          </div>
         </div>
       )}
     </header>

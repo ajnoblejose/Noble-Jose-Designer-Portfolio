@@ -1,15 +1,15 @@
-// Portfolio Data for Noble Jose — Senior UI/UX Designer
+// Portfolio Data for Noble Jose — Product Designer
 // Easily editable project information, work history, skills, and contact details.
 
 export const personalInfo = {
   name: "Noble Jose",
-  role: "Senior UI/UX Designer",
-  location: "Trivandrum, Kerala, India",
+  role: "Product Designer",
+  location: "Kerala, India",
   email: "ajninck@gmail.com",
   phone: "+91 963 362 3389",
-  tagline: "Senior UI/UX Designer specialising in design systems, product strategy, and AI-assisted workflows.",
-  bio: "I am a product designer with a background in computer applications and electronics. Over the past several years, I have led end-to-end product design across complex web and mobile platforms — bridging user research, design systems, and engineering implementation.",
-  availability: "Open to new opportunities",
+  tagline: "Making the complex simple. Making the simple meaningful.",
+  bio: "Product Designer with 4+ years of experience creating intuitive digital products at the intersection of design, technology and human behaviour.",
+  availability: "Available for work",
   links: {
     linkedin: "https://linkedin.com/in/noble-jose",
     dribbble: "https://dribbble.com/noble-jose",
@@ -149,7 +149,7 @@ export const projects = [
     year: "2023 – 2024",
     duration: "Ongoing",
     tools: ["Figma", "Design Tokens", "Auto Layout", "Design Guidelines"],
-    accent: "#b8734a",
+    accent: "#5938F5",
     overview:
       "At LogicPlum, I established and maintained a centralized design system to ensure visual consistency and streamlined handoff across our multi-product AI suite.",
     problem:
@@ -172,7 +172,7 @@ export const projects = [
     year: "2023 – 2024",
     duration: "Product Cycle",
     tools: ["Figma", "User Journey Mapping", "Miro", "Prototyping"],
-    accent: "#6b8273",
+    accent: "#5938F5",
     overview:
       "Designed intuitive interfaces that make advanced AI capabilities accessible and manageable for business users and data analysts.",
     problem:
@@ -195,7 +195,7 @@ export const projects = [
     year: "2018 – 2021",
     duration: "Multi-client",
     tools: ["Photoshop", "Illustrator", "Typography", "Visual Layout"],
-    accent: "#8c7a9c",
+    accent: "#5938F5",
     overview:
       "A body of freelance visual design work developed for diverse businesses, focusing on brand identity, visual storytelling, and marketing communication.",
     problem:

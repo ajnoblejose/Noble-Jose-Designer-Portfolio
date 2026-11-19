@@ -1,4 +1,4 @@
-import { ArrowDown, Download, ArrowUpRight } from 'lucide-react';
+import { ArrowDown, ArrowUpRight } from 'lucide-react';
 import Button from '../ui/Button';
 import { personalInfo } from '../../data/portfolio';
 
@@ -11,62 +11,69 @@ export default function Hero() {
   };
 
   return (
-    <section id="hero" className="pt-36 sm:pt-44 pb-20 sm:pb-28 px-6">
+    <section id="hero" className="pt-32 sm:pt-40 md:pt-44 pb-20 sm:pb-28 px-6">
       <div className="editorial-container">
-        <div className="max-w-3xl">
-          {/* Subtle status & location indicator */}
-          <div className="flex items-center gap-2 text-xs font-mono text-[var(--text-muted)] mb-8">
-            <span>(01)</span>
-            <span className="text-[var(--text-subtle)]">—</span>
-            <span>{personalInfo.location}</span>
-            <span className="text-[var(--text-subtle)]">·</span>
-            <span className="text-[var(--text-primary)]">{personalInfo.availability}</span>
+        
+        {/* Top: Small circular profile photograph + identity */}
+        <div className="flex items-center gap-3.5 mb-10 sm:mb-14">
+          <img
+            src="/noble-avatar.png"
+            alt="Noble Jose"
+            className="w-11 h-11 sm:w-12 sm:h-12 rounded-full object-cover object-top border border-[var(--border)] shadow-xs"
+          />
+          <div>
+            <div className="text-sm sm:text-base font-semibold text-[var(--text-primary)] leading-tight">
+              {personalInfo.name}
+            </div>
+            <div className="text-xs sm:text-sm text-[var(--text-muted)] mt-0.5 font-normal">
+              Product Designer · {personalInfo.location}
+            </div>
+          </div>
+        </div>
+
+        {/* Large, bold, left-aligned Inter headline */}
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[76px] xl:text-[84px] font-bold tracking-tight text-[var(--text-primary)] leading-[1.08] mb-14 sm:mb-20">
+          Making the complex{' '}
+          <span className="text-[#5938F5] dark:text-[#785AFF]">simple</span>.
+          <br />
+          Making the simple{' '}
+          <span className="text-[#5938F5] dark:text-[#785AFF]">meaningful</span>.
+        </h1>
+
+        {/* Bottom split: Description at bottom left, Actions at bottom right */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end pt-4">
+          
+          {/* Bottom Left: Supporting description */}
+          <div className="lg:col-span-7">
+            <p className="text-base sm:text-lg md:text-xl text-[var(--text-muted)] font-normal leading-relaxed max-w-xl">
+              {personalInfo.bio}
+            </p>
           </div>
 
-          {/* Editorial Display Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-[var(--text-primary)] leading-[1.12] mb-8">
-            Digital product designer crafting scalable systems and{' '}
-            <span className="italic font-normal text-[var(--accent)]">
-              thoughtful
-            </span>{' '}
-            interfaces.
-          </h1>
-
-          {/* Subheadline copy */}
-          <p className="text-base sm:text-lg text-[var(--text-muted)] leading-relaxed font-normal mb-12 max-w-2xl">
-            {personalInfo.bio}
-          </p>
-
-          {/* Minimalist actions */}
-          <div className="flex flex-wrap items-center gap-4">
+          {/* Bottom Right: "View my work" and "Get in touch" buttons */}
+          <div className="lg:col-span-5 flex flex-wrap items-center gap-3.5 sm:gap-4 lg:justify-end">
             <Button
               variant="primary"
-              size="md"
+              size="lg"
               onClick={() => scrollToSection('work')}
+              className="bg-[#5938F5] hover:bg-[#4828E0] text-white shadow-sm"
             >
-              <span>Selected Work</span>
-              <ArrowDown size={13} />
+              <span>View my work</span>
+              <ArrowDown size={14} />
             </Button>
 
             <Button
               variant="secondary"
-              size="md"
-              href="/resume.pdf"
-              download="Noble_Jose_Resume.pdf"
+              size="lg"
+              onClick={() => scrollToSection('contact')}
             >
-              <span>Download Resume</span>
-              <Download size={13} />
+              <span>Get in touch</span>
+              <ArrowUpRight size={14} className="opacity-60" />
             </Button>
-
-            <a
-              href={`mailto:${personalInfo.email}`}
-              className="text-xs font-mono text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors px-3 py-2 flex items-center gap-1"
-            >
-              <span>{personalInfo.email}</span>
-              <ArrowUpRight size={12} className="opacity-60" />
-            </a>
           </div>
+
         </div>
+
       </div>
     </section>
   );
