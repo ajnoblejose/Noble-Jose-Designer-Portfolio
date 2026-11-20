@@ -11,7 +11,8 @@ export const personalInfo = {
   bio: "Product Designer with 4+ years of experience creating intuitive digital products at the intersection of design, technology and human behaviour.",
   availability: "Available for work",
   links: {
-    linkedin: "https://linkedin.com/in/noble-jose",
+    linkedin: "https://www.linkedin.com/in/ajnoblejose/",
+    instagram: "https://www.instagram.com/jnr.landloper/",
     dribbble: "https://dribbble.com/noble-jose",
   },
 };

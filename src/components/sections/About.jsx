@@ -1,3 +1,4 @@
+import { Download } from 'lucide-react';
 import ScrollReveal, { ScrollRevealItem } from '../ui/ScrollReveal';
 import { aboutMe, personalInfo } from '../../data/portfolio';
 
@@ -53,6 +54,19 @@ export default function About() {
                   {capability}
                 </span>
               ))}
+            </ScrollRevealItem>
+
+            {/* Résumé Download Button: 24px gap above, left-aligned with narrative */}
+            <ScrollRevealItem className="mt-6">
+              <a
+                href="/resume.pdf"
+                download="Noble_Jose_Resume.pdf"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[var(--border)] hover:border-[var(--accent)] text-sm font-medium text-[var(--text-primary)] hover:text-[var(--accent)] transition-all duration-200 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] shadow-xs"
+                aria-label="Download Noble Jose's résumé PDF"
+              >
+                <span>Download résumé</span>
+                <Download size={15} className="transition-transform group-hover:translate-y-0.5" />
+              </a>
             </ScrollRevealItem>
           </ScrollReveal>
 

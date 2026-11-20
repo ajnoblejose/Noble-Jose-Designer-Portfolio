@@ -1,113 +1,71 @@
-import { useState } from 'react';
-import { personalInfo } from '../../data/portfolio';
-import { ArrowUpRight, Copy, Check, Download, Mail, Phone, MapPin } from 'lucide-react';
-import Button from '../ui/Button';
+import { Linkedin, Instagram, ArrowUpRight } from 'lucide-react';
+import ScrollReveal from '../ui/ScrollReveal';
 
 export default function Contact() {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText(personalInfo.email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
   return (
-    <section id="contact" className="py-24 sm:py-36 px-6 border-t border-[var(--border)]">
+    <section id="contact" className="py-20 sm:py-28 px-6 border-t border-[var(--border)]">
       <div className="editorial-container">
-        <div className="max-w-2xl">
-          {/* Section index */}
-          <div className="flex items-center gap-2 text-xs font-mono text-[var(--text-muted)] mb-6">
-            <span>(05)</span>
-            <span className="text-[var(--text-subtle)]">—</span>
-            <span>Contact & Inquiries</span>
-          </div>
+        <ScrollReveal className="w-full">
+          {/* Minimal Dark Contact Container: #111111, 32px corner radius, 64px desktop / 24px mobile padding */}
+          <div className="rounded-[32px] bg-[#111111] text-white p-6 sm:p-12 md:p-16 border border-[#262626] shadow-2xl relative overflow-hidden">
+            {/* Section label: inherits typography from About Me label */}
+            <span className="text-base sm:text-lg text-neutral-400 font-normal leading-relaxed mb-4 sm:mb-6 block">
+              Contact
+            </span>
 
-          {/* Headline */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-[var(--text-primary)] leading-tight mb-6">
-            Let's work together.
-          </h2>
+            {/* Main heading: Let's build something meaningful together. */}
+            <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-[68px] font-bold tracking-tight text-white leading-[1.1] mb-8 sm:mb-10 max-w-4xl">
+              Let&apos;s build something{' '}
+              <span className="text-[#785AFF]">meaningful</span> together.
+            </h2>
 
-          <p className="text-base text-[var(--text-muted)] leading-relaxed mb-10 font-normal">
-            I am currently open to senior UI/UX design opportunities, design system architecture, and product strategy discussions. Reach out directly via email or phone.
-          </p>
-
-          {/* Primary Action Buttons */}
-          <div className="flex flex-wrap items-center gap-3 mb-12">
-            <Button
-              variant="primary"
-              size="md"
-              href={`mailto:${personalInfo.email}`}
-            >
-              <Mail size={13} />
-              <span>Send an Email</span>
-            </Button>
-
-            <button
-              type="button"
-              onClick={handleCopyEmail}
-              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs font-mono border border-[var(--border)] text-[var(--text-primary)] hover:border-[var(--text-muted)] transition-colors cursor-pointer"
-            >
-              {copied ? (
-                <>
-                  <Check size={12} className="text-[var(--accent)]" />
-                  <span className="text-[var(--accent)]">Copied to clipboard</span>
-                </>
-              ) : (
-                <>
-                  <Copy size={12} className="opacity-60" />
-                  <span>{personalInfo.email}</span>
-                </>
-              )}
-            </button>
-
-            <Button
-              variant="secondary"
-              size="md"
-              href="/resume.pdf"
-              download="Noble_Jose_Resume.pdf"
-            >
-              <Download size={13} />
-              <span>Resume PDF</span>
-            </Button>
-          </div>
-
-          {/* Direct Details & Social Links */}
-          <div className="pt-8 border-t border-[var(--border)] flex flex-wrap items-center justify-between gap-6 text-xs font-mono text-[var(--text-muted)]">
-            <div className="flex items-center gap-6">
-              <span className="flex items-center gap-1.5">
-                <Phone size={12} className="text-[var(--accent)]" />
-                <span>{personalInfo.phone}</span>
-              </span>
-              <span className="flex items-center gap-1.5">
-                <MapPin size={12} className="text-[var(--accent)]" />
-                <span>{personalInfo.location}</span>
-              </span>
+            {/* Email address: Prominently displayed and clickable with subtle underline hover */}
+            <div className="mb-10 sm:mb-12">
+              <a
+                href="mailto:ajninck@gmail.com"
+                className="text-xl sm:text-2xl md:text-3xl font-medium text-white/90 hover:text-white transition-colors duration-300 underline-offset-8 decoration-white/30 hover:decoration-white hover:underline inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#785AFF] rounded"
+                aria-label="Send email to ajninck@gmail.com"
+              >
+                ajninck@gmail.com
+              </a>
             </div>
 
-            <div className="flex items-center gap-4">
+            {/* Social CTA buttons: Side by side with 12px gap */}
+            <div className="flex flex-wrap items-center gap-3">
+              {/* LinkedIn: Primary violet-filled pill button with glow on hover */}
               <a
-                href={personalInfo.links.linkedin}
+                href="https://www.linkedin.com/in/ajnoblejose/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[var(--text-primary)] transition-colors flex items-center gap-1"
+                className="group inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-[#5938F5] text-white text-sm font-medium transition-all duration-300 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:shadow-[0_10px_24px_rgba(89,56,245,0.45)] focus:outline-none focus-visible:ring-2 focus-visible:ring-white motion-reduce:hover:translate-y-0"
+                aria-label="View LinkedIn profile (opens in new tab)"
               >
+                <Linkedin size={16} className="text-white" />
                 <span>LinkedIn</span>
-                <ArrowUpRight size={11} className="opacity-50" />
+                <ArrowUpRight
+                  size={16}
+                  className="transition-transform duration-300 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:group-hover:translate-x-0 motion-reduce:group-hover:translate-y-0"
+                />
               </a>
 
+              {/* Instagram: Secondary outlined pill button */}
               <a
-                href={personalInfo.links.dribbble}
+                href="https://www.instagram.com/jnr.landloper/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[var(--text-primary)] transition-colors flex items-center gap-1"
+                className="group inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full border border-white/20 text-white bg-transparent text-sm font-medium transition-all duration-300 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:bg-white/10 hover:border-white/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                aria-label="View Instagram profile (opens in new tab)"
               >
-                <span>Dribbble</span>
-                <ArrowUpRight size={11} className="opacity-50" />
+                <Instagram size={16} className="text-white" />
+                <span>Instagram</span>
+                <ArrowUpRight
+                  size={16}
+                  className="transition-transform duration-300 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:group-hover:translate-x-0 motion-reduce:group-hover:translate-y-0"
+                />
               </a>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );
