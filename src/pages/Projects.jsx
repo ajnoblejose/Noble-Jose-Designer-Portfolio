@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowUpRight } from 'lucide-react';
+import ScrollReveal, { ScrollRevealItem } from '../components/ui/ScrollReveal';
 import { projects, personalInfo } from '../data/portfolio';
 
 export default function Projects() {
@@ -7,7 +8,7 @@ export default function Projects() {
     <main className="pt-32 sm:pt-40 pb-20 sm:pb-28 px-6">
       <div className="editorial-container">
         {/* Navigation Breadcrumb */}
-        <div className="mb-10">
+        <ScrollReveal className="mb-10">
           <Link
             to="/"
             className="inline-flex items-center gap-2 text-sm font-medium text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors group"
@@ -15,10 +16,10 @@ export default function Projects() {
             <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
             <span>Back to overview</span>
           </Link>
-        </div>
+        </ScrollReveal>
 
         {/* Page Header */}
-        <div className="max-w-3xl mb-14 sm:mb-16">
+        <ScrollReveal className="max-w-3xl mb-14 sm:mb-16">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[var(--text-primary)] leading-tight">
             All{' '}
             <span className="text-[#5938F5] dark:text-[#785AFF]">projects</span>
@@ -26,12 +27,12 @@ export default function Projects() {
           <p className="mt-4 text-base sm:text-lg text-[var(--text-muted)] font-normal leading-relaxed">
             A comprehensive archive of product design work, enterprise AI platforms, mobile applications, and digital systems created by {personalInfo.name}.
           </p>
-        </div>
+        </ScrollReveal>
 
-        {/* Projects Grid: 2-column layout matching Selected Work */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-12">
+        {/* Projects Grid: 2-column layout matching Selected Work with 100ms stagger */}
+        <ScrollReveal container stagger={0.1} className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-12">
           {projects.map((project) => (
-            <article key={project.id}>
+            <ScrollRevealItem as="article" key={project.id}>
               <Link
                 to={`/work/${project.id}`}
                 className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] rounded-[24px]"
@@ -72,9 +73,9 @@ export default function Projects() {
                   ) : null}
                 </div>
               </Link>
-            </article>
+            </ScrollRevealItem>
           ))}
-        </div>
+        </ScrollReveal>
       </div>
     </main>
   );

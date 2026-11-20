@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
+import ScrollReveal, { ScrollRevealItem } from '../ui/ScrollReveal';
 import { projects } from '../../data/portfolio';
 
 export default function SelectedWork() {
@@ -7,7 +8,7 @@ export default function SelectedWork() {
     <section id="work" className="py-20 sm:py-28 px-6">
       <div className="editorial-container">
         {/* Section Header: Left has Heading + Description, Right has "View all projects" pill button */}
-        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-12">
+        <ScrollReveal className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-12">
           <div>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[var(--text-primary)] leading-tight">
               Selected{' '}
@@ -28,12 +29,16 @@ export default function SelectedWork() {
             <span>View all projects</span>
             <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
-        </div>
+        </ScrollReveal>
 
-        {/* 2x2 Project Grid: 24px column gap, 48px row gap, 1-col on mobile */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-12">
+        {/* 2x2 Project Grid: 24px column gap, 48px row gap, 1-col on mobile with 100ms stagger */}
+        <ScrollReveal
+          container
+          stagger={0.1}
+          className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-12"
+        >
           {projects.map((project) => (
-            <article key={project.id}>
+            <ScrollRevealItem as="article" key={project.id}>
               <Link
                 to={`/work/${project.id}`}
                 className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] rounded-[24px]"
@@ -67,9 +72,9 @@ export default function SelectedWork() {
                   </p>
                 </div>
               </Link>
-            </article>
+            </ScrollRevealItem>
           ))}
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

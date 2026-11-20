@@ -1,43 +1,51 @@
----
-description: Persistent workflow for all portfolio updates, reviews, builds, and deployments.
-globs: ["**/*"]
-always_on: true
----
+# Noble Jose Portfolio — Deployment & Update Workflow
 
-# Portfolio Development & Deployment Workflow
+This project is the personal product design portfolio of Noble Jose (Senior UI/UX Designer).
+- **Production Website:** https://ajnoblejose.vercel.app
+- **GitHub Repository:** https://github.com/ajnoblejose/Noble-Jose-Designer-Portfolio.git
 
-This project is Noble Jose's personal UI/UX design portfolio.
-Production Website: https://ajnoblejose.vercel.app
-GitHub Repository: https://github.com/ajnoblejose/Noble-Jose-Designer-Portfolio.git
+## Mandatory Portfolio Update Workflow
 
-For all future portfolio updates, you MUST strictly adhere to the following sequence:
-
-## Required Workflow Steps
+For any and all future updates to this portfolio, follow this strict 6-step lifecycle:
 
 1. **Make Requested Changes:**
-   - Implement the requested edits or additions to the existing project codebase.
-   - Maintain visual simplicity, minimal editorial typography (Geist / Geist Mono), and consistent light/dark theme tokens.
-   - Keep content in `src/data/portfolio.js` easily editable.
+   - Apply edits to the existing codebase without unnecessary rebuilds.
+   - Maintain the editorial minimalism, generous whitespace, and light/dark theme consistency.
+   - Keep project and biographical content in `src/data/portfolio.js` clean and easily editable.
 
 2. **Run Local Preview for Review:**
-   - Launch or maintain the local Vite preview server (`npm run dev`) so the user can inspect the live updates in their browser.
-   - Present the changes clearly to the user.
+   - Ensure the local dev server is running (`npm run dev`) so the user can review changes in real time at `http://127.0.0.1:5173`.
 
-3. **Wait for Approval:**
-   - Never proceed to commit, publish, or push without explicit approval from the user.
-   - Ask for review and confirm whether further adjustments are needed.
+3. **Wait for User Approval:**
+   - **Do NOT publish or commit automatically.**
+   - Summarize the updates made and explicitly request the user's review and approval before taking any deployment action.
 
 4. **Verify Production Build:**
-   - Once approved, run `npm run build` to verify that there are 0 build errors, no missing imports, and that type/asset bundles compile cleanly.
+   - Execute `npm run build` to confirm there are zero TypeScript/JavaScript compilation or Vite packaging errors.
 
 5. **Commit Approved Changes:**
-   - Stage and commit the approved modifications with a clear, descriptive Git commit message following conventional commits (e.g., `feat: ...`, `fix: ...`, `refactor: ...`).
+   - Create a clean Git commit with a descriptive, professional commit message.
 
 6. **Push to GitHub Main Branch:**
-   - Push the commits to `origin main` to trigger automatic production deployment on Vercel (`https://ajnoblejose.vercel.app`).
+   - Push to `origin main` to trigger automatic Vercel deployment to `https://ajnoblejose.vercel.app`.
 
-## Strict Safety Constraints
+## Global Scroll Animation Standards
 
-- **Never publish unapproved changes:** Do not push to GitHub without user sign-off.
-- **Never use force push (`--force` / `-f`):** Always preserve commit history cleanly.
-- **Preserve Configurations:** Keep existing GitHub remotes, Vercel build settings, package configurations, and project structure intact.
+All existing and future sections, project listings, and case studies must adhere to the global viewport scroll animation standard inspired by the Velia Framer template:
+
+- **Component:** Use `ScrollReveal` (`src/components/ui/ScrollReveal.jsx`) and `ScrollRevealItem` for structured content cascades.
+- **Centralized Config:** `src/config/animations.js` (`SCROLL_ANIMATION_CONFIG`).
+- **Opacity:** `0` to `1`
+- **Vertical Displacement:** `24px` (`translateY(24px) -> translateY(0)`)
+- **Duration:** `700ms` (`0.7s`)
+- **Easing:** `ease-out` (`cubic-bezier(0.16, 1, 0.3, 1)`)
+- **Stagger Delay:** `100ms` (`0.1s`) between sibling elements (headings, descriptions, images, cards, buttons)
+- **Repeat / Direction:** Repeatable and reversible bidirectional animations when scrolling up or down (`viewport: { once: false, amount: 0.15 }`).
+- **Fixed Navigation Exclusion:** The top fixed navigation must remain fully visible and excluded from scroll-based fading.
+- **Accessibility:** Must respect `prefers-reduced-motion` (instant display with 0ms transition).
+- **Performance:** Hardware-accelerated transforms (`transform`, `opacity`), zero layout shifts (CLS = 0), native scrolling preserved without scroll hijacking.
+
+## Golden Rules
+- **Never publish unapproved changes.**
+- **Never force push (`git push -f` or `--force`).**
+- **Preserve existing GitHub and Vercel configurations.**

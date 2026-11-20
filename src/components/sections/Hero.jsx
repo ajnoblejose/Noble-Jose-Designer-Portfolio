@@ -1,5 +1,6 @@
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
 import Button from '../ui/Button';
+import ScrollReveal, { ScrollRevealItem } from '../ui/ScrollReveal';
 import { personalInfo } from '../../data/portfolio';
 
 export default function Hero() {
@@ -12,10 +13,14 @@ export default function Hero() {
 
   return (
     <section id="hero" className="pt-32 sm:pt-40 md:pt-44 pb-20 sm:pb-28 px-6">
-      <div className="editorial-container">
-        
+      <ScrollReveal
+        container
+        stagger={0.1}
+        viewport={{ once: false, amount: 0.05 }}
+        className="editorial-container"
+      >
         {/* Top: Small circular profile photograph + identity */}
-        <div className="flex items-center gap-3.5 mb-10 sm:mb-14">
+        <ScrollRevealItem className="flex items-center gap-3.5 mb-10 sm:mb-14">
           <img
             src="/noble-avatar.png"
             alt="Noble Jose"
@@ -29,20 +34,22 @@ export default function Hero() {
               Product Designer · {personalInfo.location}
             </div>
           </div>
-        </div>
+        </ScrollRevealItem>
 
         {/* Large, bold, left-aligned Inter headline */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[76px] xl:text-[84px] font-bold tracking-tight text-[var(--text-primary)] leading-[1.08] mb-14 sm:mb-20">
+        <ScrollRevealItem
+          as="h1"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-[76px] xl:text-[84px] font-bold tracking-tight text-[var(--text-primary)] leading-[1.08] mb-14 sm:mb-20"
+        >
           Making the complex{' '}
           <span className="text-[#5938F5] dark:text-[#785AFF]">simple</span>.
           <br />
           Making the simple{' '}
           <span className="text-[#5938F5] dark:text-[#785AFF]">meaningful</span>.
-        </h1>
+        </ScrollRevealItem>
 
         {/* Bottom split: Description at bottom left, Actions at bottom right */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end pt-4">
-          
+        <ScrollRevealItem className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end pt-4">
           {/* Bottom Left: Supporting description */}
           <div className="lg:col-span-7">
             <p className="text-base sm:text-lg md:text-xl text-[var(--text-muted)] font-normal leading-relaxed max-w-xl">
@@ -71,10 +78,8 @@ export default function Hero() {
               <ArrowUpRight size={14} className="opacity-60" />
             </Button>
           </div>
-
-        </div>
-
-      </div>
+        </ScrollRevealItem>
+      </ScrollReveal>
     </section>
   );
 }

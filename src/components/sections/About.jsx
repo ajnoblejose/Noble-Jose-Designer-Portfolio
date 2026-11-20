@@ -1,3 +1,4 @@
+import ScrollReveal, { ScrollRevealItem } from '../ui/ScrollReveal';
 import { aboutMe, personalInfo } from '../../data/portfolio';
 
 export default function About() {
@@ -8,7 +9,7 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Personal Portrait with 4:5 aspect ratio and 24px corner radius */}
-          <div className="w-full">
+          <ScrollReveal className="w-full">
             <div className="aspect-[4/5] w-full overflow-hidden rounded-[24px] bg-[var(--bg-secondary)] shadow-sm">
               <img
                 src={aboutMe.portrait}
@@ -17,27 +18,33 @@ export default function About() {
                 loading="lazy"
               />
             </div>
-          </div>
+          </ScrollReveal>
 
-          {/* Right Column: Vertically Centred Editorial Narrative */}
-          <div className="flex flex-col justify-center">
+          {/* Right Column: Vertically Centred Editorial Narrative with 100ms stagger */}
+          <ScrollReveal container stagger={0.1} className="flex flex-col justify-center">
             {/* Section label: sentence case, inheriting exact typography and colour of Selected Work description */}
-            <span className="text-base sm:text-lg text-[var(--text-muted)] font-normal leading-relaxed mb-4 sm:mb-6 block">
+            <ScrollRevealItem className="text-base sm:text-lg text-[var(--text-muted)] font-normal leading-relaxed mb-4 sm:mb-6 block">
               {aboutMe.label}
-            </span>
+            </ScrollRevealItem>
 
             {/* Main statement: monochromatic, bold, no violet emphasis */}
-            <h2 className="text-2xl sm:text-3xl lg:text-[34px] xl:text-[38px] font-bold tracking-tight text-[var(--text-primary)] leading-[1.25] mb-6 sm:mb-8">
+            <ScrollRevealItem
+              as="h2"
+              className="text-2xl sm:text-3xl lg:text-[34px] xl:text-[38px] font-bold tracking-tight text-[var(--text-primary)] leading-[1.25] mb-6 sm:mb-8"
+            >
               {aboutMe.statement}
-            </h2>
+            </ScrollRevealItem>
 
             {/* Professional introduction */}
-            <p className="text-base sm:text-lg text-[var(--text-muted)] font-normal leading-relaxed mb-8 sm:mb-10">
+            <ScrollRevealItem
+              as="p"
+              className="text-base sm:text-lg text-[var(--text-muted)] font-normal leading-relaxed mb-8 sm:mb-10"
+            >
               {aboutMe.introduction}
-            </p>
+            </ScrollRevealItem>
 
             {/* Core capabilities: compact subtle lavender pill-shaped chips */}
-            <div className="flex flex-wrap gap-2.5">
+            <ScrollRevealItem className="flex flex-wrap gap-2.5">
               {aboutMe.capabilities.map((capability) => (
                 <span
                   key={capability}
@@ -46,8 +53,8 @@ export default function About() {
                   {capability}
                 </span>
               ))}
-            </div>
-          </div>
+            </ScrollRevealItem>
+          </ScrollReveal>
 
         </div>
       </div>

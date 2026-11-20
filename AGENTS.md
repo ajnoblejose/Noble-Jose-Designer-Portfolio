@@ -29,6 +29,22 @@ For any and all future updates to this portfolio, follow this strict 6-step life
 6. **Push to GitHub Main Branch:**
    - Push to `origin main` to trigger automatic Vercel deployment to `https://ajnoblejose.vercel.app`.
 
+## Global Scroll Animation Standards
+
+All existing and future sections, project listings, and case studies must adhere to the global viewport scroll animation standard inspired by the Velia Framer template:
+
+- **Component:** Use `ScrollReveal` (`src/components/ui/ScrollReveal.jsx`) and `ScrollRevealItem` for structured content cascades.
+- **Centralized Config:** `src/config/animations.js` (`SCROLL_ANIMATION_CONFIG`).
+- **Opacity:** `0` to `1`
+- **Vertical Displacement:** `24px` (`translateY(24px) -> translateY(0)`)
+- **Duration:** `700ms` (`0.7s`)
+- **Easing:** `ease-out` (`cubic-bezier(0.16, 1, 0.3, 1)`)
+- **Stagger Delay:** `100ms` (`0.1s`) between sibling elements (headings, descriptions, images, cards, buttons)
+- **Repeat / Direction:** Repeatable and reversible bidirectional animations when scrolling up or down (`viewport: { once: false, amount: 0.15 }`).
+- **Fixed Navigation Exclusion:** The top fixed navigation must remain fully visible and excluded from scroll-based fading.
+- **Accessibility:** Must respect `prefers-reduced-motion` (instant display with 0ms transition).
+- **Performance:** Hardware-accelerated transforms (`transform`, `opacity`), zero layout shifts (CLS = 0), native scrolling preserved without scroll hijacking.
+
 ## Golden Rules
 - **Never publish unapproved changes.**
 - **Never force push (`git push -f` or `--force`).**
