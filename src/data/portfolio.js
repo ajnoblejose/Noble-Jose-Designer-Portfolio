@@ -35,6 +35,56 @@ export const aboutMe = {
   portrait: "/noble-about.jpg",
 };
 
+export const whatIDo = {
+  heading: "What I do best",
+  description:
+    "From understanding the problem to shaping the final experience, here's where I bring the most value.",
+  capabilities: [
+    {
+      id: "product-strategy",
+      title: "Product strategy",
+      description:
+        "Connecting user needs, business goals and technology to define the right problems to solve.",
+      icon: "Compass",
+    },
+    {
+      id: "ux-research",
+      title: "UX research",
+      description:
+        "Understanding people, their behaviours and frustrations to make informed design decisions.",
+      icon: "Users",
+    },
+    {
+      id: "product-ui-design",
+      title: "Product & UI design",
+      description:
+        "Turning complex requirements into intuitive, accessible web and mobile experiences.",
+      icon: "Layout",
+    },
+    {
+      id: "design-systems",
+      title: "Design systems",
+      description:
+        "Building reusable components and scalable patterns that keep products consistent as they grow.",
+      icon: "Component",
+    },
+    {
+      id: "interaction-prototyping",
+      title: "Interaction & prototyping",
+      description:
+        "Bringing ideas to life through interactive prototypes, meaningful motion and thoughtful interactions.",
+      icon: "MousePointerClick",
+    },
+    {
+      id: "ai-experiences",
+      title: "AI-powered experiences",
+      description:
+        "Making emerging technologies feel approachable, useful and naturally human.",
+      icon: "Sparkles",
+    },
+  ],
+};
+
 export const skills = {
   "Product Design": [
     "UX Strategy",
