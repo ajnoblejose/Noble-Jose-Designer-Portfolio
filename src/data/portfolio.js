@@ -85,6 +85,35 @@ export const whatIDo = {
   ],
 };
 
+export const professionalJourney = {
+  heading: "My professional journey",
+  description:
+    "A journey through technology, visual design and digital product experiences.",
+  experiences: [
+    {
+      id: "logicplum",
+      period: "Dec 2021 – Mar 2026",
+      role: "Senior UI/UX Designer",
+      company: "LogicPlum",
+      location: "Trivandrum, Kerala",
+    },
+    {
+      id: "freelance",
+      period: "Jun 2018 – Jun 2021",
+      role: "Graphic Designer (Part-time)",
+      company: "Freelance",
+      location: "Ernakulam, Kerala",
+    },
+    {
+      id: "cusat",
+      period: "Sep 2018 – Mar 2020",
+      role: "Technical Assistant",
+      company: "CUSAT",
+      location: "Ernakulam, Kerala",
+    },
+  ],
+};
+
 export const skills = {
   "Product Design": [
     "UX Strategy",
@@ -123,9 +152,9 @@ export const skills = {
     "Photoshop",
     "Illustrator",
     "Claude",
-    "Cursor",
     "Miro",
-    "Lovable",
+    "Antigravity",
+    "Vercel",
   ],
 };
 

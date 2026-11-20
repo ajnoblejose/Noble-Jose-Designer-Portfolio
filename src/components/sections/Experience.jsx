@@ -1,161 +1,65 @@
-import { designExperience, technicalExperience, education } from '../../data/portfolio';
 import { Download } from 'lucide-react';
-import Button from '../ui/Button';
+import ScrollReveal, { ScrollRevealItem } from '../ui/ScrollReveal';
+import { professionalJourney } from '../../data/portfolio';
 
 export default function Experience() {
   return (
     <section id="experience" className="py-20 sm:py-28 px-6 border-t border-[var(--border)]">
       <div className="editorial-container">
-        {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-16">
-          <div>
-            <div className="flex items-center gap-2 text-xs font-mono text-[var(--text-muted)] mb-3">
-              <span>(04)</span>
-              <span className="text-[var(--text-subtle)]">—</span>
-              <span>Experience & Background</span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-[var(--text-primary)]">
-              Work history and credentials
-            </h2>
-          </div>
+        {/* Section Header: Matching typography with previous sections */}
+        <ScrollReveal className="max-w-2xl mb-12 sm:mb-16">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[var(--text-primary)] leading-tight">
+            My professional{' '}
+            <span className="text-[#5938F5] dark:text-[#785AFF]">journey</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-[var(--text-muted)] font-normal leading-relaxed">
+            {professionalJourney.description}
+          </p>
+        </ScrollReveal>
 
-          <Button
-            variant="secondary"
-            size="md"
+        {/* Experience List: Clean 3-column rows (25% / 50% / 25%) separated by subtle 1px dividers */}
+        <ScrollReveal container stagger={0.1} className="border-t border-[var(--border)]">
+          {professionalJourney.experiences.map((exp) => (
+            <ScrollRevealItem
+              key={exp.id}
+              className="border-b border-[var(--border)]"
+            >
+              <div
+                className="group relative min-h-[96px] py-6 sm:py-0 px-4 -mx-4 sm:px-6 sm:-mx-6 rounded-2xl flex flex-col sm:grid sm:grid-cols-12 sm:items-center gap-2 sm:gap-4 transition-all duration-300 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:bg-[#F3EFFF]/60 dark:hover:bg-[#1C1838]/60 cursor-default"
+              >
+                {/* 1. Employment Period: 25% (col-span-3) */}
+                <div className="sm:col-span-3 text-sm sm:text-base text-[var(--text-muted)] font-normal">
+                  {exp.period}
+                </div>
+
+                {/* 2. Designation: 50% (col-span-6) — Moves 4px right and turns violet on hover */}
+                <div className="sm:col-span-6">
+                  <span className="inline-block text-lg sm:text-xl font-medium tracking-tight text-[var(--text-primary)] transition-all duration-300 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:text-[#5938F5] dark:group-hover:text-[#785AFF] group-hover:translate-x-1 motion-reduce:group-hover:translate-x-0">
+                    {exp.role}
+                  </span>
+                </div>
+
+                {/* 3. Company: 25% (col-span-3) — Right-aligned on desktop */}
+                <div className="sm:col-span-3 sm:text-right text-sm sm:text-base text-[var(--text-muted)] font-normal">
+                  {exp.company}
+                </div>
+              </div>
+            </ScrollRevealItem>
+          ))}
+        </ScrollReveal>
+
+        {/* Résumé Download: Outlined pill-shaped button aligned to the right below the list */}
+        <ScrollReveal className="mt-10 sm:mt-12 flex justify-end">
+          <a
             href="/resume.pdf"
             download="Noble_Jose_Resume.pdf"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[var(--border)] hover:border-[var(--accent)] text-sm font-medium text-[var(--text-primary)] hover:text-[var(--accent)] transition-all duration-200 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] shadow-xs"
+            aria-label="Download Noble Jose's résumé PDF"
           >
-            <span>Download Resume PDF</span>
-            <Download size={13} />
-          </Button>
-        </div>
-
-        {/* Part 1: Product Design Experience */}
-        <div className="mb-20">
-          <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-widest text-[var(--accent)] mb-8">
-            <span>Product Design Experience</span>
-            <span className="h-px flex-1 bg-[var(--border)]" />
-          </div>
-
-          <div className="space-y-12">
-            {designExperience.map((job) => (
-              <div
-                key={job.id}
-                className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 pb-12 border-b border-[var(--border)] last:border-b-0 last:pb-0"
-              >
-                {/* Meta column (4 cols) */}
-                <div className="md:col-span-4 space-y-1">
-                  <h3 className="text-lg font-medium text-[var(--text-primary)]">
-                    {job.role}
-                  </h3>
-                  <div className="text-sm font-mono text-[var(--accent)]">
-                    {job.company}
-                  </div>
-                  <div className="text-xs font-mono text-[var(--text-muted)] pt-1">
-                    {job.period} · {job.location}
-                  </div>
-                </div>
-
-                {/* Bullets column (8 cols) */}
-                <div className="md:col-span-8 space-y-3">
-                  <ul className="space-y-2.5">
-                    {job.bullets.map((bullet) => (
-                      <li
-                        key={bullet}
-                        className="text-sm text-[var(--text-muted)] leading-relaxed flex items-start gap-2.5"
-                      >
-                        <span className="w-1 h-1 rounded-full bg-[var(--text-subtle)] mt-2 flex-shrink-0" />
-                        <span>{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Skills tags */}
-                  <div className="flex flex-wrap gap-1.5 pt-4">
-                    {job.tools.map((t) => (
-                      <span
-                        key={t}
-                        className="text-[11px] font-mono px-2.5 py-0.5 rounded border border-[var(--border)] text-[var(--text-subtle)] bg-[var(--bg-secondary)]"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Part 2: Technical & Engineering Foundation */}
-        <div className="mb-20 pt-12 border-t border-[var(--border)]">
-          <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-widest text-[var(--text-subtle)] mb-8">
-            <span>Technical & Systems Foundation</span>
-            <span className="h-px flex-1 bg-[var(--border)]" />
-          </div>
-
-          <div className="space-y-12">
-            {technicalExperience.map((job) => (
-              <div
-                key={job.id}
-                className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8"
-              >
-                <div className="md:col-span-4 space-y-1">
-                  <h3 className="text-lg font-medium text-[var(--text-primary)]">
-                    {job.role}
-                  </h3>
-                  <div className="text-sm font-mono text-[var(--text-muted)]">
-                    {job.company}
-                  </div>
-                  <div className="text-xs font-mono text-[var(--text-muted)] pt-1">
-                    {job.period} · {job.location}
-                  </div>
-                </div>
-
-                <div className="md:col-span-8 space-y-3">
-                  <ul className="space-y-2.5">
-                    {job.bullets.map((bullet) => (
-                      <li
-                        key={bullet}
-                        className="text-sm text-[var(--text-muted)] leading-relaxed flex items-start gap-2.5"
-                      >
-                        <span className="w-1 h-1 rounded-full bg-[var(--text-subtle)] mt-2 flex-shrink-0" />
-                        <span>{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Part 3: Education */}
-        <div className="pt-12 border-t border-[var(--border)]">
-          <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-widest text-[var(--text-subtle)] mb-8">
-            <span>Education</span>
-            <span className="h-px flex-1 bg-[var(--border)]" />
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {education.map((edu) => (
-              <div
-                key={edu.degree}
-                className="p-6 rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)]/40"
-              >
-                <div className="text-xs font-mono text-[var(--text-muted)] mb-2">
-                  {edu.period}
-                </div>
-                <h4 className="text-sm font-medium text-[var(--text-primary)] mb-1">
-                  {edu.degree}
-                </h4>
-                <div className="text-xs font-mono text-[var(--accent)]">
-                  {edu.institution}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+            <span>Download résumé</span>
+            <Download size={15} className="transition-transform group-hover:translate-y-0.5" />
+          </a>
+        </ScrollReveal>
       </div>
     </section>
   );
